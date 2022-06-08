@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using eShopSolution.Data.EF;
 
 namespace eShopSolution.Data.Migrations
 {
     [DbContext(typeof(EShopDbContext))]
-    partial class EShopDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220608122928_aspnetcoreIdentityDb")]
+    partial class aspnetcoreIdentityDb
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -92,13 +94,6 @@ namespace eShopSolution.Data.Migrations
                     b.HasKey("UserId", "RoleId");
 
                     b.ToTable("AppUserRoles");
-
-                    b.HasData(
-                        new
-                        {
-                            UserId = new Guid("d1690aed-a5c0-42fe-9845-3c02a736a0d1"),
-                            RoleId = new Guid("af8006ac-f480-4040-8ab5-fbc13e454e01")
-                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<System.Guid>", b =>
@@ -133,23 +128,6 @@ namespace eShopSolution.Data.Migrations
                     b.HasKey("Key");
 
                     b.ToTable("AppConfigs");
-
-                    b.HasData(
-                        new
-                        {
-                            Key = "HomeTitle",
-                            Value = "This is homepage"
-                        },
-                        new
-                        {
-                            Key = "HomeKeyword",
-                            Value = "This is keyword"
-                        },
-                        new
-                        {
-                            Key = "HomeDescription",
-                            Value = "This is description"
-                        });
                 });
 
             modelBuilder.Entity("eShopSolution.Data.Entities.AppRole", b =>
@@ -175,16 +153,6 @@ namespace eShopSolution.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("AppRoles");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("af8006ac-f480-4040-8ab5-fbc13e454e01"),
-                            ConcurrencyStamp = "0c508c8e-b368-46a7-9b1a-bccc7c5f1753",
-                            Description = "Admin Role",
-                            Name = "admin",
-                            NormalizedName = "admin"
-                        });
                 });
 
             modelBuilder.Entity("eShopSolution.Data.Entities.AppUser", b =>
@@ -251,27 +219,6 @@ namespace eShopSolution.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("AppUsers");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("d1690aed-a5c0-42fe-9845-3c02a736a0d1"),
-                            AccessFailedCount = 0,
-                            ConcurrencyStamp = "6f1b48f6-b60b-4f45-a0bb-fb5c454cc7e4",
-                            Dob = new DateTime(1988, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Email = "thiluongphong@gmail.com",
-                            EmailConfirmed = true,
-                            FirstName = "Phong",
-                            LastName = "Thi",
-                            LockoutEnabled = false,
-                            NormalizedEmail = "thiluongphong@gmail.com",
-                            NormalizedUserName = "admin",
-                            PasswordHash = "AQAAAAEAACcQAAAAEFxX6xzLQgKWlW+RIXyV3hROo1fcZeeETFmKTRRGNnTa8cVr+B6k+G69BIqp5qbZfA==",
-                            PhoneNumberConfirmed = false,
-                            SecurityStamp = "",
-                            TwoFactorEnabled = false,
-                            UserName = "admin"
-                        });
                 });
 
             modelBuilder.Entity("eShopSolution.Data.Entities.Cart", b =>
@@ -331,22 +278,6 @@ namespace eShopSolution.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Categories");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            IsShowOnHome = true,
-                            SortOrder = 1,
-                            Status = 1
-                        },
-                        new
-                        {
-                            Id = 2,
-                            IsShowOnHome = true,
-                            SortOrder = 2,
-                            Status = 1
-                        });
                 });
 
             modelBuilder.Entity("eShopSolution.Data.Entities.CategoryTranslation", b =>
@@ -392,48 +323,6 @@ namespace eShopSolution.Data.Migrations
                     b.HasIndex("LanguageId");
 
                     b.ToTable("CategoryTranslations");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            CategoryId = 1,
-                            LanguageId = "vi-VN",
-                            Name = "Áo nam",
-                            SeoAlias = "ao-nam",
-                            SeoDescription = "Áo thời trang nam",
-                            SeoTitle = "Áo thời trang nam"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            CategoryId = 1,
-                            LanguageId = "en-US",
-                            Name = "Men 's shirt",
-                            SeoAlias = "men-shirt",
-                            SeoDescription = "Men 's fashion shirt",
-                            SeoTitle = "Men 's fashion shirt"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            CategoryId = 2,
-                            LanguageId = "vi-VN",
-                            Name = "Áo nữ",
-                            SeoAlias = "ao-nu",
-                            SeoDescription = "Áo thời trang nữ",
-                            SeoTitle = "Áo thời trang nữ"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            CategoryId = 2,
-                            LanguageId = "en-US",
-                            Name = "Women 's shirt",
-                            SeoAlias = "women-shirt",
-                            SeoDescription = "Women 's fashion shirt",
-                            SeoTitle = "Women 's fashion shirt"
-                        });
                 });
 
             modelBuilder.Entity("eShopSolution.Data.Entities.Contact", b =>
@@ -490,20 +379,6 @@ namespace eShopSolution.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Languages");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = "vi-VN",
-                            IsDefault = true,
-                            Name = "Tiếng Việt"
-                        },
-                        new
-                        {
-                            Id = "en-US",
-                            IsDefault = false,
-                            Name = "English"
-                        });
                 });
 
             modelBuilder.Entity("eShopSolution.Data.Entities.Order", b =>
@@ -604,17 +479,6 @@ namespace eShopSolution.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Products");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            DateCreated = new DateTime(2022, 6, 8, 23, 20, 52, 159, DateTimeKind.Local).AddTicks(5426),
-                            OriginalPrice = 50000m,
-                            Price = 100000m,
-                            Stock = 0,
-                            ViewCount = 0
-                        });
                 });
 
             modelBuilder.Entity("eShopSolution.Data.Entities.ProductInCategory", b =>
@@ -630,13 +494,6 @@ namespace eShopSolution.Data.Migrations
                     b.HasIndex("ProductId");
 
                     b.ToTable("ProductInCategories");
-
-                    b.HasData(
-                        new
-                        {
-                            CategoryId = 1,
-                            ProductId = 1
-                        });
                 });
 
             modelBuilder.Entity("eShopSolution.Data.Entities.ProductTranslation", b =>
@@ -687,32 +544,6 @@ namespace eShopSolution.Data.Migrations
                     b.HasIndex("ProductId");
 
                     b.ToTable("ProductTranslations");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Description = "Áo thun nam Việt Tiến",
-                            Details = "Áo thun nam Việt Tiến",
-                            LanguageId = "vi-VN",
-                            Name = "Áo thun nam VT",
-                            ProductId = 1,
-                            SeoAlias = "ao-thun-nam-vt",
-                            SeoDescription = "Áo thun nam Việt Tiến",
-                            SeoTitle = "Áo thun nam VT"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Description = "Viet Tien Men 's fashion Tshirt",
-                            Details = "Viet Tien Men 's fashion Tshirt",
-                            LanguageId = "en-US",
-                            Name = "VT Men 's Tshirt",
-                            ProductId = 1,
-                            SeoAlias = "vt-men-tshirt",
-                            SeoDescription = "Viet Tien Men 's fashion Tshirt",
-                            SeoTitle = "VT Men 's Tshirt"
-                        });
                 });
 
             modelBuilder.Entity("eShopSolution.Data.Entities.Promotion", b =>
